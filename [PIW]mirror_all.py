@@ -1,6 +1,3 @@
-# 使用前に「#」を付加し、使用後に「#」を削除する
-print(a)
-
 from PIL import Image, ImageOps
 import os
 import glob
@@ -24,8 +21,8 @@ with open("FL.txt", "w", encoding = "utf-8") as f:
 """ 画像を開いてそのまま保存 """
 for f in files_file:
     # img = Image.open("使用する細胞が入っているフォルダ名/" + f) とする
-    img = Image.open("FL/" + f)
-    img.save("FL 0/" + f, quality = 95)
+    img = Image.open(path + "/" + f)
+    img.save(path + "/" + f, quality=95)
 
 # files = glob.glob("./引数に画像を保存したフォルダ名/*") とする
 files = glob.glob("./FL 0/*")
@@ -40,7 +37,7 @@ for i,f in enumerate(files):
 """ 上下反転させた画像を生成 """
 for f in files_file:
     # img = Image.open("使用する細胞が入っているフォルダ名/" + f) とする
-    img = Image.open("FL/" + f)
+    img = Image.open( + f)
     img_flip = ImageOps.flip(img)
     
     # img_flip.save("画像を保存するフォルダ名/" + f, quality = 95) とする
