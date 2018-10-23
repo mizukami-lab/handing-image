@@ -19,11 +19,12 @@ with open("FL.txt", "w", encoding = "utf-8") as f:
 for f in files_file:
     # img = Image.open("使用する細胞が入っているフォルダ名/" + f) とする
     img = Image.open(path + "/" + f)
-    img.save(path + "/" + f, quality=95)
+    
+    # 保存するフォルダを作成する
+    if not os.path.exists(path + "0"):
+        os.mkdir(path + "0")
+    img.save(path + "0/" + f, quality=95)
 
-# 保存するフォルダを作成する
-if not os.path.exists(path + "0"):
-    os.mkdir(path + "0")
 # files = glob.glob("./引数に画像を保存したフォルダ名/*") とする
 files = glob.glob(path + "0/*")
 
@@ -90,7 +91,7 @@ for f in files_file:
         os.mkdir(path + "3")
     
     # img_flip.save("画像を保存するフォルダ名/" + f, quality = 95) とする
-    img_flip_mirror.save(path + "/" + f, quality=95)
+    img_flip_mirror.save(path + "3/" + f, quality=95)
 
 # files = glob.glob("./引数に画像を保存したフォルダ名/*") とする
 files = glob.glob(path + "3/*")
